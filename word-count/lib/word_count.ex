@@ -1,4 +1,5 @@
 defmodule WordCount do
+  @separators [" ", "_", ",", "\n"]
   @doc """
   Count the number of words in the sentence.
   
@@ -14,7 +15,7 @@ defmodule WordCount do
 
   @spec get_cleaned_words(String.t()) :: [String.t()]
   defp get_cleaned_words(sentence) do
-    for word <- String.split(sentence, [" ", "_"], trim: true) do
+    for word <- String.split(sentence, @separators, trim: true) do
       word
       |> String.downcase()
       |> clean()
@@ -23,6 +24,6 @@ defmodule WordCount do
 
   @spec clean(String.t()) :: String.t()
   defp clean(string) do
-    String.replace(string, ~r/[.,:;!?ºª§@$#%"^~'`&*()<>='"\+\|\\{\}\[\]\\\/]+/, "")
+    String.replace(string, ~r/[.,:;!?ºª§@$#%"^~`&*()<>="\+\|\\{\}\[\]\\\/]+/, "")
   end
 end
