@@ -65,13 +65,13 @@ defmodule WordCountTest do
     assert WordCount.count("First: don't laugh. Then: don't cry.") == expected
   end
 
-  @tag :pending
+  # @tag :pending
   test "with quotations" do
     expected = %{"joe" => 1, "can't" => 1, "tell" => 1, "between" => 1, "large" => 2, "and" => 1}
     assert WordCount.count("Joe can't tell between 'large' and large.") == expected
   end
 
-  @tag :pending
+  # @tag :pending
   test "with quotations at the end at the beginning of the sentence" do
     expected = %{"venti" => 1, "in" => 1, "italian" => 1, "means" => 1, "twenty" => 1}
     assert WordCount.count("'venti' in Italian means 'twenty'") == expected
@@ -99,7 +99,7 @@ defmodule WordCountTest do
     assert WordCount.count(" multiple   whitespaces") == expected
   end
 
-  @tag :pending
+  # @tag :pending
   test "alternating word separators not detected as a word" do
     expected = %{"one" => 1, "two" => 1, "three" => 1}
     assert WordCount.count(",\n,one,\n ,two \n 'three'") == expected
